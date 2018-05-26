@@ -180,51 +180,29 @@ include_once 'phpConnect/connect.php';
 					</button>	
 				</div>
 			</div>
-
-			<div class="user">
-				<div class="changeuser">
-					<h3>&#9679; Change UserID</h3>
-				</div>
-				<div class="userbar">
-					<p>Input your new UserID</p>
-					<input type="text" name="user" placeholder="Cherprang48"></input>
-					<button type="submit" style="color: #fff text-decoration: none">
-						<h4 style="color: #fff;">Okay</h4>
-					</button>
-				</div>
-			</div>
 		</div>
-	</form>
-	
-	<script>
-		function showPsw() {
-			var x = document.getElementById("psw");
-			if (x.type === "password") {
-				x.type = "text";
-			} else {
-				x.type = "password";
-			}
-		}
+	</div>
+</form>
 
-		function showNewPsw() {
-			var y = document.getElementById("newpsw");
-			if (y.type === "password") {
-				y.type = "text";
-			} else {
-				y.type = "password";
-			}
-		}	
-			
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-		<script>
-			$(document).ready(function(){
-				$(".pswbar").hide();
-				$(".changepsw").click(function(){
-					$(".pswbar").toggle();
-				});
-			});
-		</script>
-	</script>
+<script>
+	function showPsw() {
+		var x = document.getElementById("psw");
+		if (x.type === "password") {
+			x.type = "text";
+		} else {
+			x.type = "password";
+		}
+	}
+
+	function showNewPsw() {
+		var y = document.getElementById("newpsw");
+		if (y.type === "password") {
+			y.type = "text";
+		} else {
+			y.type = "password";
+		}
+	}	
+</script>
 
 </body>
 </html> 
