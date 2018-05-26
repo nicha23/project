@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+	body {
+		font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
+	}
+
+	h1 {
+		color: Tomato;
+		font-size: 30px;
+	}
+
+	h2 {
+		color: Tomato;
+		font-size: 25px;
+	}
+	
+	.sidenav {
+		height: 100%;
+		width: 250px;
+		position: fixed;
+		z-index: 1;
+		top: 0;
+		left: 0;
+		background-color: #212529;
+		overflow-x: hidden;
+		padding-top: 200px;
+	}
+
+	.sidenav a {
+		padding: 6px 8px 6px 16px;
+		text-decoration: none;
+		font-size: 20px;
+		color: #ddd;
+		display: block;
+	}
+
+	.sidenav a:hover {
+		color: Tomato;
+	}
+
+	.sidenav a:focus, .sidenav a:active {
+		background-color: #3f474f;
+		color: #000;
+		font-weight: bold; 
+	}
+
+	.main {
+		margin-left: 250px; /* Same as the width of the sidenav */
+		font-size: 20px; /* Increased text to enable scrolling */
+		padding: 0px 10px;
+	}
+
+	@media screen and (max-height: 450px) {
+		.sidenav {
+			padding-top: 15px;
+		}
+		.sidenav a {
+			font-size: 18px;
+		}
+	}
+</style>
+</head>
+<body>
+	<div class="sidenav">
+		<div style="padding-left: 16px;">
+			<h2>JBU <br> Online Banking</h2>
+		</div>
+		<a href="#about">My Account</a>
+		<a href="#services">Transfer</a>
+		<a href="#clients">Bill Payment</a>
+		<a href="#contact">Settings</a>
+		<a href="#contact">Sign out</a>
+	</div>
+
+	<div class="main">
+		<h1 style="padding-left: 30px;">Transfer</h1>
+		
+		Select your account
+		<input type="text"></input>
+
+		Select Receiever's Bank
+		<select name="bank" required>
+			<option value="" selected="selected" disabled="disabled">-- select one --</option>
+			<?php
+					$sql = "SELECT BankID,BankName FROM bank";
+					if ($result = mysqli_query($conn, $sql)) {
+					    while ($row = mysqli_fetch_array($result)) {
+			                    // printf ("%s (%s)\n", $row['BankID'], $row['BankName']);
+					    	?>
+					    		<option value="<?php echo $row['BankID']?>"><?php echo $row['BankName']?>
+					    	<?php
+					    }
+					    $result->close();
+					}
+			?>
+			</select>
+
+	</div>
+	
+
+</body>
+</html> 
