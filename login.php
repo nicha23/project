@@ -148,7 +148,7 @@
 				<input type="Password" name="Password" id="Password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" required></input>
 				<h3><input type="checkbox" onclick="showPsw()">Show Password</input></h3>	
 
-				<button type="submit" style="color: #fff text-decoration: none" onclick="checkPsw()">
+				<button type="submit" style="color: #fff text-decoration: none" >
 					<h4>Login</h4>
 				</button>
 			</div>

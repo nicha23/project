@@ -10,6 +10,7 @@
         echo "Failed to connect to MySQL: " . mysqli_connect_error();
     }
     // escape variables for security
+
     $UserID = mysqli_real_escape_string($con, $_POST['UserID']);
     $Password = md5(mysqli_real_escape_string($con, $_POST['Password']));
 
