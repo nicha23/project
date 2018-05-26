@@ -128,11 +128,6 @@ include_once 'phpConnect/connect.php';
 		}
 	}
 </style>
-<?php 
-session_start();
-$UserID = $_SESSION['UserID'];
-include_once 'phpConnect/connect.php';
-?>
 </head>
 <body>
 	<div class="sidenav">
