@@ -148,7 +148,7 @@
 				<h3><input type="checkbox" onclick="showRepPsw()">Show Password</input></h3>	
 
 				<h2>Account No.</h2>
-				<input type="text" name="AccountNo" id="accno" placeholder="Enter Account No." required></input>
+				<input type="text" name="AccountNo" id="AccountNo" placeholder="Enter Account No." required></input>
 
 				<p id="demo"></p>
 

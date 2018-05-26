@@ -1,6 +1,5 @@
 <?php 
 session_start();
-$UserID = $_SESSION['UserID'];
 include_once 'phpConnect/connect.php';
 ?>
 
@@ -170,10 +169,10 @@ include_once 'phpConnect/connect.php';
 				</div>
 				<div class="pswbar">
 					<p>Input your current password</p>
-					<input type="password" id="psw" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;"></input>
+					<input type="password" name="Password" id="Password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;"></input>
 					<h4><input type="checkbox" onclick="showPsw()">Show Password</input></h4>	
 					<p>Input your new password</p>
-					<input type="password" id="newpsw" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;"></input>
+					<input type="password" name="New_Password" id="New_Password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;"></input>
 					<h4><input type="checkbox" onclick="showNewPsw()">Show Password</input></h4>
 					<button type="submit" style="color: #fff text-decoration: none">
 						<h4 style="color: #fff;">Okay</h4>
@@ -186,7 +185,7 @@ include_once 'phpConnect/connect.php';
 
 <script>
 	function showPsw() {
-		var x = document.getElementById("psw");
+		var x = document.getElementById("Password");
 		if (x.type === "password") {
 			x.type = "text";
 		} else {
@@ -195,7 +194,7 @@ include_once 'phpConnect/connect.php';
 	}
 
 	function showNewPsw() {
-		var y = document.getElementById("newpsw");
+		var y = document.getElementById("New_Password");
 		if (y.type === "password") {
 			y.type = "text";
 		} else {
