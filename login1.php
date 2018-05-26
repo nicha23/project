@@ -26,9 +26,9 @@
         $_SESSION["UserID"]=$result['UserID'];
         $_SESSION["Password"]=$result['Password'];
         //echo "Session variables are set.";
+        header('Location: myacc.php');
     }elseif(($result['UserID']!=$UserID)||($result['Password']!=$Password)){
         echo "UserID or Password incorrect!";
     }else echo "please try again later!!";
-
     mysqli_close($con);
 ?> 
