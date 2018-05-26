@@ -44,10 +44,18 @@
     // print_r($result22);
 
     if ($result11 == NULL) {
-        echo "GO TO JBU BANK! FOR Create AccountNO.";
+        //echo "GO TO JBU BANK! FOR Create AccountNO.";
+        echo '<script language="javascript">';
+        echo 'alert("GO TO JBU BANK! FOR Create AccountNO.")';
+        echo '</script>';
+        echo "<script>setTimeout(\"location.href = 'index.html';\",0);</script>";
     }else{
         if($result22 != NULL){
-            echo "HAVE detail of my Identification and You go to login";
+            //echo "HAVE detail of my Identification and You go to login";
+            echo '<script language="javascript">';
+            echo 'alert("HAVE detail of my Identification and You go to login")';
+            echo '</script>';
+            echo "<script>setTimeout(\"location.href = 'login.php';\",0);</script>";
         }
         else{
             $sql="INSERT INTO userinfo (UserID,IdentificationNo,PassportNo,Name,DateofBirth,Gender,Nationality,HighestEducation,MaritalStatus,ResidentialStatus,Occupation,Email,TelNo,MobileNo,Address,ZIPCode)
