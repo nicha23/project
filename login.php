@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<!-- free inst -->
 	<meta charset="UTF-8">
 	<title>Log in</title>
 	<style>
