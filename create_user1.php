@@ -31,16 +31,26 @@
             if (!mysqli_query($con,$sql)) {
             die('Error: ' . mysqli_error($con));
             }
-            header('location: index.html');
+            echo '<script language="javascript">';
+            echo 'alert("Create User successfully")';
+            echo '</script>';
+            echo "<script>setTimeout(\"location.href = 'index.html';\",0);</script>";
+            //header('location: index.html');
             session_destroy();
         }else{
-            echo "Account no matching with IdentificationNo";
-            echo "<script>setTimeout(\"location.href = 'create_user.php';\",1500);</script>";
+            // Account no matching with IdentificationNo 
+            echo '<script language="javascript">';
+            echo 'alert("Account no matching with IdentificationNo")';
+            echo '</script>';
+            echo "<script>setTimeout(\"location.href = 'create_user.php';\",0);</script>";
         }
         
     }else if($Password != $rep_Password){
-        echo "Password not matching";
-        echo "<script>setTimeout(\"location.href = 'create_user.php';\",1500);</script>";
+        // Password not matching 
+        echo '<script language="javascript">';
+        echo 'alert("Password not matching")';
+        echo '</script>';
+        echo "<script>setTimeout(\"location.href = 'create_user.php';\",0);</script>";
     }
     mysqli_close($con);
 ?> 
