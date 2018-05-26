@@ -30,6 +30,7 @@
     #check in account have identification
     $sql_Identification_check1 = "SELECT IdentificationNo FROM account WHERE IdentificationNo ='$IdentificationNo'";     
     $query1 = mysqli_query($con, $sql_Identification_check1);
+    $result11 = NULL ;
     while($result1 = mysqli_fetch_assoc($query1)){
         $result11 = $result1['IdentificationNo'];
     }
