@@ -235,7 +235,7 @@ include_once 'phpConnect/connect.php';
 					<div class="myacc">
 						<strong>Acc No.</strong>
 						<?php
-						$sql_acc = "SELECT userinfo.IdentificationNo, account.AccountNo
+						$sql_acc = "SELECT userinfo.IdentificationNo, account.AccountNo, account.Balance
 						FROM userinfo
 						INNER JOIN account ON userinfo.IdentificationNo=account.IdentificationNo WHERE userinfo.UserID='$UserID';";     
 						$query_acc = mysqli_query($conn, $sql_acc);
@@ -243,6 +243,26 @@ include_once 'phpConnect/connect.php';
 						?>
 
 						<?php echo $result_acc['AccountNo'] ?><br>
+
+						<div class="accinfobar">
+							<strong>Balance</strong>
+							<?php echo $result_acc['Balance'] ?><br>
+
+							<?php $sql_acc2 = "SELECT branchinfo.branchname, userinfo.IdentificationNo, account.AccountNo, account.Balance FROM userinfo INNER JOIN account ON userinfo.IdentificationNo=account.IdentificationNo INNER JOIN branchinfo ON account.branchid=branchinfo.branchid WHERE userinfo.UserID='$UserID'"; 
+							$query_acc2 = mysqli_query($conn, $sql_acc2);
+							$result_acc2 = mysqli_fetch_assoc($query_acc2);
+							?>
+							<strong>Branch</strong>
+							<?php echo $result_acc2['branchname'] ?><br>
+
+							<?php $sql_acc3 = "SELECT typeaccount.TypeAccount, userinfo.IdentificationNo, account.AccountNo, account.Balance FROM userinfo INNER JOIN account ON userinfo.IdentificationNo=account.IdentificationNo INNER JOIN typeaccount ON account.TypeAccountID=typeaccount.TypeAccountID WHERE userinfo.UserID='$UserID'"; 
+							$query_acc3 = mysqli_query($conn, $sql_acc3);
+							$result_acc3 = mysqli_fetch_assoc($query_acc3);
+							?>
+							<strong>Type Account</strong>
+							<?php echo $result_acc3['TypeAccount'] ?><br>
+						</div>
+
 					</div>			
 
 					<div class="addacc">
@@ -267,13 +287,6 @@ include_once 'phpConnect/connect.php';
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script>
-		$(document).ready(function(){
-			$(".accbar").hide();
-			$(".addacc").click(function(){
-				$(".accbar").toggle();
-			});
-		});
-
 		$(document).ready(function(){
 			$(".accbar").hide();
 			$(".addacc").click(function(){
