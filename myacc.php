@@ -46,13 +46,12 @@
 		font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
 		cursor: pointer;
 		color: #fff;
-		padding: 1rem 2rem;
-		display: inline-block;
+		display: block;
 		width: 100px;
 		background-color: #34a534;
-		margin: 30px 0 30px 10px;
 		text-align: center;
 		float: right;
+		padding: 13px;
 	}
 
 	button[type=submit]:hover, button[type=submit]:active, button[type=submit]:focus {
@@ -118,7 +117,7 @@
 
 	.acc {
 		padding: 30px;
-		height: 300px;
+		height: 400px;
 		background-color: #eee;
 	}
 
@@ -127,6 +126,14 @@
 		padding: 30px;
 		height: 100px;
 		background-color: #eee;
+	}
+	
+	.myacc {
+		padding: 30px;
+		cursor: pointer;
+		background-color: #777;
+		border-radius: 20px; 
+		color: #fff;
 	}
 
 	.addacc {
@@ -223,26 +230,27 @@ include_once 'phpConnect/connect.php';
 			<div class="right">
 				<div class="acc">
 					<strong>Your Account(s)</strong> <br>
+					<div class="myacc">
+						<strong>Acc No.</strong>
+						<?php
+						$sql_acc = "SELECT userinfo.IdentificationNo, account.AccountNo
+						FROM userinfo
+						INNER JOIN account ON userinfo.IdentificationNo=account.IdentificationNo WHERE userinfo.UserID='$UserID';";     
+						$query_acc = mysqli_query($conn, $sql_acc);
+						$result_acc = mysqli_fetch_assoc($query_acc);
+						?>
 
-					<?php
-					$sql_acc = "SELECT userinfo.IdentificationNo, account.AccountNo
-					FROM userinfo
-					INNER JOIN account ON userinfo.IdentificationNo=account.IdentificationNo WHERE userinfo.UserID='$UserID';";     
-					$query_acc = mysqli_query($conn, $sql_acc);
-					$result_acc = mysqli_fetch_assoc($query_acc);
-					?>
-
-					<?php echo $result_acc['AccountNo'] ?><br>
+						<?php echo $result_acc['AccountNo'] ?><br>
+					</div>			
 
 					<div class="addacc">
-						<img src="img/png/add.png" alt="add" width="17px" height="17px"></img> Add account
+						<br><img src="img/png/add.png" alt="add" width="17px" height="17px"></img> Add account
 					</div>
 
 					<div class="accbar">
 						<form action="myacc1.php" method="post">
 							Account No. <input type="text"></input>
-
-							<button type="submit" style="color: #fff text-decoration: none"><h3>Add</h3></button>
+							<button type="submit" style="color: #fff text-decoration: none">Add</button>
 						</form>
 					</div>
 				</div>
@@ -257,6 +265,13 @@ include_once 'phpConnect/connect.php';
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script>
+		$(document).ready(function(){
+			$(".accbar").hide();
+			$(".addacc").click(function(){
+				$(".accbar").toggle();
+			});
+		});
+
 		$(document).ready(function(){
 			$(".accbar").hide();
 			$(".addacc").click(function(){

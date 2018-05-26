@@ -142,23 +142,9 @@
 </style>
 <?php 
 session_start();
+$UserID = $_SESSION['UserID'];
 include_once 'phpConnect/connect.php';
 ?>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script>
-	$(document).ready(function(){
-		$(".pswbar").hide();
-		$(".changepsw").click(function(){
-			$(".pswbar").toggle();
-		});
-	});
-	$(document).ready(function(){
-		$(".userbar").hide();
-		$(".changeuser").click(function(){
-			$(".userbar").toggle();
-		});
-	});
-</script>
 </head>
 <body>
 	<div class="sidenav">
@@ -188,11 +174,9 @@ include_once 'phpConnect/connect.php';
 					<input type="password" id="newpsw" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;"></input>
 					<h4><input type="checkbox" onclick="showNewPsw()">Show Password</input></h4>
 					<button type="submit" style="color: #fff text-decoration: none">
-					<h4 style="color: #fff;">Okay</h4>
-				</button>	
+						<h4 style="color: #fff;">Okay</h4>
+					</button>	
 				</div>
-				
-
 			</div>
 
 			<div class="user">
@@ -203,14 +187,11 @@ include_once 'phpConnect/connect.php';
 					<p>Input your new UserID</p>
 					<input type="text" name="user" placeholder="Cherprang48"></input>
 					<button type="submit" style="color: #fff text-decoration: none">
-					<h4 style="color: #fff;">Okay</h4>
-				</button>
+						<h4 style="color: #fff;">Okay</h4>
+					</button>
 				</div>
-
 			</div>
-
 		</div>
-
 	</form>
 	
 	<script>
@@ -230,7 +211,17 @@ include_once 'phpConnect/connect.php';
 			} else {
 				y.type = "password";
 			}
-		}		
+		}	
+			
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				$(".pswbar").hide();
+				$(".changepsw").click(function(){
+					$(".pswbar").toggle();
+				});
+			});
+		</script>
 	</script>
 
 </body>
