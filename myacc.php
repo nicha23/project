@@ -17,8 +17,16 @@
 		font-size: 25px;
 	}
 	
-	input[type=text], select, textarea {
-		width: 100%;
+	input[type=text], textarea {
+		width: 200px;
+		padding: 15px;
+		display: inline-block;
+		border: none;
+		background: #ddd;
+	}
+
+	select {
+		width: 250px;
 		padding: 15px;
 		display: inline-block;
 		border: none;
@@ -84,7 +92,7 @@
 		color: #000;
 		font-weight: bold; 
 	}
-	
+
 	.sidenav>a[name="myacc"] {
 		background-color: #3f474f;
 		color: #000;
@@ -97,20 +105,37 @@
 		background-color: #456;
 	}
 
+	.myinfo {
+		padding: 30px;
+		height: 300px;
+	}
+
 	.right {
 		margin-left: 30px;
 		width: 600px;	
-		
+
 	}
 
 	.acc {
+		padding: 30px;
 		height: 300px;
 		background-color: #283;
 	}
 
 	.statement {
+		margin-top: 30px;
+		padding: 30px;
 		height: 100px;
 		background-color: #eee;
+	}
+
+	.addacc {
+		cursor: pointer;
+	}
+
+	.accbar {
+		background-color: #eee;
+		padding: 10px 10px 10px 10px;
 	}
 
 	.main {
@@ -137,6 +162,7 @@
 </style>
 <?php 
 session_start();
+$UserID = $_SESSION['UserID'];
 include_once 'phpConnect/connect.php';
 ?>
 </head>
@@ -152,33 +178,102 @@ include_once 'phpConnect/connect.php';
 		<a href="#contact">Sign out</a>
 	</div>
 
-	
-
 	<div class="main">
 		<h1>My Account</h1>
 		<div class="container">
-			
-
 			<div class="left">
-				
-				<h2>eieiza</h2>
-				
+				<div class="myinfo">
+					<?php
+					$sql_myinfo = "SELECT UserID,Name,DateofBirth,Gender,Nationality,HighestEducation,MaritalStatus,ResidentialStatus,Occupation,Email,TelNo,MobileNo,Address,ZIPCode FROM userinfo WHERE UserID='$UserID'";     
+					$query_myinfo = mysqli_query($conn, $sql_myinfo);
+					$result_myinfo = mysqli_fetch_assoc($query_myinfo);
+					?>
+					<strong>UserID</strong>
+					<?php echo $UserID ?><br>
+					<strong>Name </strong>
+					<?php echo $result_myinfo['Name']; ?><br>
+					<strong>Date of Birth</strong>
+					<?php echo $result_myinfo['DateofBirth'] ?><br>
+					<strong>Gender</strong>
+					<?php echo $result_myinfo['Gender'] ?><br>
+					<strong>Nationality</strong>
+					<?php echo $result_myinfo['Nationality'] ?><br>
+					<strong>Highest Education</strong>
+					<?php echo $result_myinfo['HighestEducation'] ?><br>
+					<strong>Marital Status</strong>
+					<?php echo $result_myinfo['MaritalStatus'] ?><br>
+					<strong>Residential Status</strong>
+					<?php echo $result_myinfo['ResidentialStatus'] ?><br>
+					<strong>Occupation</strong>
+					<?php echo $result_myinfo['Occupation'] ?><br>
+					<strong>Email</strong>
+					<?php echo $result_myinfo['Email'] ?><br>
+					<strong>TelNo</strong>
+					<?php echo $result_myinfo['TelNo'] ?><br>
+					<strong>Mobile No.</strong>
+					<?php echo $result_myinfo['MobileNo'] ?><br>
+					<strong>Address</strong>
+					<?php echo $result_myinfo['Address'] ?><br>
+					<strong>ZIPCode</strong>
+					<?php echo $result_myinfo['ZIPCode'] ?><br>
+				</div>	
 			</div>
-
-
 
 			<div class="right">
 				<div class="acc">
-					<h2>hahaha</h2>
-				</div>
+					Your Account(s) <br>
 
-				<div class="statement">
-					<h2>ggez</h2>
-				</div>
-			</div>	
+					<?php
+					$sql_acc = "SELECT userinfo.IdentificationNo, account.AccountNo
+					FROM userinfo
+					INNER JOIN account ON userinfo.IdentificationNo=account.IdentificationNo WHERE userinfo.UserID='$UserID';";     
+					$query_acc = mysqli_query($conn, $sql_acc);
+					$result_acc = mysqli_fetch_assoc($query_acc);
+					?>
+
+					<?php echo $result_acc['AccountNo'] ?><br>
+
+					<div class="addacc">
+						<img src="img/png/add.png" alt="add" width="17px" height="17px"></img> Add account
+					</div>
+
+					<div class="accbar">
+						<form action="myacc1.php" method="post">
+							<select name="acctype">
+								<option value="" selected="selected" disabled="disabled">-- select account type --</option>
+								<?php
+								$sql_type = "SELECT TypeAccountID,TypeAccount FROM typeaccount";
+								if ($result_type = mysqli_query($conn, $sql_type)) {
+									while ($row_type = mysqli_fetch_array($result_type)) {
+										?>
+										<option value="<?php echo $row['TypeAccountID']?>"><?php echo $row_type['TypeAccount']?>
+											<?php
+										}
+										$result_type->close();
+									}
+									?>
+								</select>
+								<button type="submit" style="color: #fff text-decoration: none"><h3>Add</h3></button>
+							</form>
+						</div>
+					</div>
+
+
+					<div class="statement">
+						Latest Statement
+					</div>
+				</div>	
+			</div>
+
 		</div>
-
-	</div>
-
-</body>
-</html> 
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				$(".accbar").hide();
+				$(".addacc").click(function(){
+					$(".accbar").toggle();
+				});
+			});
+		</script>
+	</body>
+	</html> 

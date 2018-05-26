@@ -124,6 +124,7 @@
 </style>
 <?php 
 session_start();
+$UserID = $_SESSION['UserID'];
 include_once 'phpConnect/connect.php';
 ?>
 </head>
@@ -146,14 +147,15 @@ include_once 'phpConnect/connect.php';
 				<select name="accno" required>
 					<option value="" selected="selected" disabled="disabled">-- select your account --</option>
 					<?php
-					$sql = "SELECT BankID,BankName FROM bank";
-					if ($result = mysqli_query($conn, $sql)) {
-						while ($row = mysqli_fetch_array($result)) {
-							?>
-							<option value="<?php echo $row['BankID']?>"><?php echo $row['BankName']?>
+					$sql_acc = "SELECT userinfo.IdentificationNo, account.AccountNo
+					FROM userinfo INNER JOIN account ON userinfo.IdentificationNo=account.IdentificationNo WHERE userinfo.UserID='$UserID';";     
+					if ($result_acc = mysqli_query($conn, $sql_acc)) {
+						while ($row_acc = mysqli_fetch_array($result_acc)) {
+						?>
+							<option value="<?php echo $row_acc['AccountNo'] ?>"><?php echo $row_acc['AccountNo']?>
 								<?php
 							}
-							$result->close();
+							$result_acc->close();
 						}
 						?>
 					</select><br><br>
@@ -174,11 +176,14 @@ include_once 'phpConnect/connect.php';
 							?>
 						</select><br><br>
 
+						Receiver's Account No. <br>
+						<input type="text" name="recaccno" required></input><br><br>
+
 						Amount <br>
-						<input type="text" required></input><br><br>
+						<input type="text" name="amount" required></input><br><br>
 
 						Note <br>
-						<textarea rows="4" cols="50" placeholder="Note about your transaction..."></textarea><br><br>
+						<textarea name="note" rows="4" cols="50" placeholder="Note about your transaction..."></textarea><br><br>
 
 						<button type="submit" style="color: #fff text-decoration: none">
 							<h4>Okay</h4>

@@ -169,7 +169,7 @@
 			<input type="text" placeholder="Enter Passport No." name="PassportNo">
 
 			<label for="dob"><b>Date of birth</b></label>
-			<input type="date" name="DateofBirth" max="2018-05-05" min="1980-01-01" required>
+			<input type="date" name="DateofBirth" max="2003-05-27" min="1958-01-01" required>
 
 			<label for="gender"><b>Gender</b></label><br>
 			<input type="radio" name="Gender" value="male" checked> Male <br>

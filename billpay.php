@@ -124,6 +124,7 @@
 </style>
 <?php 
 session_start();
+$UserID = $_SESSION['UserID'];
 include_once 'phpConnect/connect.php';
 ?>
 </head>
@@ -145,25 +146,26 @@ include_once 'phpConnect/connect.php';
 			<div class="billpay">
 				Select your account <br>
 				<select name="accno" required>
-					<option value="" selected="selected" disabled="disabled">-- select bank --</option>
+					<option value="" selected="selected" disabled="disabled">-- select your account --</option>
 					<?php
-					$sql = "SELECT BankID,BankName FROM bank";
-					if ($result = mysqli_query($conn, $sql)) {
-						while ($row = mysqli_fetch_array($result)) {
+					$sql_acc = "SELECT userinfo.IdentificationNo, account.AccountNo
+					FROM userinfo INNER JOIN account ON userinfo.IdentificationNo=account.IdentificationNo WHERE userinfo.UserID='$UserID';";     
+					if ($result_acc = mysqli_query($conn, $sql_acc)) {
+						while ($row_acc = mysqli_fetch_array($result_acc)) {
 							?>
-							<option value="<?php echo $row['BankID']?>"><?php echo $row['BankName']?>
+							<option value="<?php echo $row_acc['AccountNo'] ?>"><?php echo $row_acc['AccountNo']?>
 								<?php
 							}
-							$result->close();
+							$result_acc->close();
 						}
 						?>
-					</select><br>
+					</select><br><br>
 
 					Payment Code<br>
-
+					<input type="text" name="paycode"></input><br><br>
 
 					Amount <br>
-					<p id="demo"></p>
+					<input type="text" name="amount"></input><br><br>
 
 					Note <br>
 					<textarea rows="4" cols="50" placeholder="Note about your transaction..."></textarea><br>
@@ -185,6 +187,8 @@ include_once 'phpConnect/connect.php';
 					x.type = "password";
 				}
 			}
+
+			
 		</script>
 	</body>
 	</html> 
