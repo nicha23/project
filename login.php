@@ -134,7 +134,7 @@
 	<div class="hpage">
 		<a href="index.html" class="navbar-brand" style="text-decoration: none">JBU.com</a>
 	</div>
-	<form action="login.php" method="POST">
+	<form action="myacc.php" method="POST">
 		<div class="container">
 			<h1>Login</h1><br>
 

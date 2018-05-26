@@ -13,7 +13,7 @@
     $UserID = mysqli_real_escape_string($con, $_POST['UserID']);
     $Password = md5(mysqli_real_escape_string($con, $_POST['Password']));
 
-    $sql_Password_check = "SELECT UserID,Password FROM userid WHERE UserID = '$UserID';";
+    $sql_Password_check = "SELECT UserID,Password FROM userid WHERE UserID = '$UserID'&& Password = '$Password';";
     $query = mysqli_query($con, $sql_Password_check);
     $result = mysqli_fetch_assoc($query);
 
@@ -26,9 +26,9 @@
         $_SESSION["UserID"]=$result['UserID'];
         $_SESSION["Password"]=$result['Password'];
         //echo "Session variables are set.";
-        header('Location: myacc.php');
     }elseif(($result['UserID']!=$UserID)||($result['Password']!=$Password)){
         echo "UserID or Password incorrect!";
+        echo "<script>setTimeout(\"location.href = 'login.php';\",1500);</script>";
     }else echo "please try again later!!";
     mysqli_close($con);
 ?> 
