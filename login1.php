@@ -20,15 +20,19 @@
     if (!mysqli_query($con,$sql_Password_check)) {
         die('Error: ' . mysqli_error($con));
     }else if($result['UserID']!=''){
-        echo "login success!"; 
+        //echo "login success!"; 
         // Set session variables
         $_SESSION["UserID"]=$result['UserID'];
         $_SESSION["Password"]=$result['Password'];
         //echo "Session variables are set.";
-        header('Location: myacc.php');
+        echo "<script>setTimeout(\"location.href = 'myacc.php';\",1500);</script>";
+        //header('Location: myacc.php');
     }else{
-        echo "UserID or Password incorrect!";
-        echo "<script>setTimeout(\"location.href = 'login.php';\",1500);</script>";
+        //echo "UserID or Password incorrect!";
+        echo '<script language="javascript">';
+        echo 'alert("UserID or Password incorrect!")';
+        echo '</script>';
+        echo "<script>setTimeout(\"location.href = 'login.php';\",0);</script>";
     }
     mysqli_close($con);
 ?> 
