@@ -1,3 +1,9 @@
+<?php 
+session_start();
+$UserID = $_SESSION['UserID'];
+include_once 'phpConnect/connect.php';
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -122,11 +128,7 @@
 		}
 	}
 </style>
-<?php 
-session_start();
-$UserID = $_SESSION['UserID'];
-include_once 'phpConnect/connect.php';
-?>
+
 </head>
 <body>
 	<div class="sidenav">
@@ -137,7 +139,7 @@ include_once 'phpConnect/connect.php';
 		<a href="transfer.php" name="transfer">Transfer</a>
 		<a href="billpay.php" name="billpay">Bill Payment</a>
 		<a href="settings.php" name="settings">Settings</a>
-		<a href="login.php">Sign out</a>
+		<a href="logout.php">Sign out</a>
 	</div>
 	<form action="transfer1.php" method="post">
 		<div class="main">
