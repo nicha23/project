@@ -1,3 +1,9 @@
+<?php 
+session_start();
+$UserID = $_SESSION['UserID'];
+include_once 'phpConnect/connect.php';
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -140,11 +146,7 @@
 		}
 	}
 </style>
-<?php 
-session_start();
-$UserID = $_SESSION['UserID'];
-include_once 'phpConnect/connect.php';
-?>
+
 </head>
 <body>
 	<div class="sidenav">
