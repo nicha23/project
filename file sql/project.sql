@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 26, 2018 at 02:06 PM
+-- Generation Time: May 26, 2018 at 06:09 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.2
 
@@ -249,7 +249,16 @@ CREATE TABLE `userid` (
 --
 
 INSERT INTO `userid` (`UserID`, `AccountNo`, `Password`) VALUES
-('sitthisak55110', '50000000001', 'c764fa6be784c0cf8be04b8552305d59');
+('CHERPRANG', '50000000001', '0ff89de99d4a8f4b04cb162bcb5740cf'),
+('gerrard8', '60500000001', '4ebac1ea54c153b89443867fa57e106c'),
+('JENNIS', '50500000001', '639fc2398fd45606ada087e30168287b'),
+('JETSUPA', '57000000002', '772a12a3721c69f0abc363824e6cf1b6'),
+('messi10', '50500000005', '731c110542108947840060ad7d996c38'),
+('N3V4L0ZT', '56500000002', '7ff1b2771924ca37deb7f657ed87ba97'),
+('NAPAPHAT', '56500000003', '7aa03c3c187aa873b6f20d687ff5c92a'),
+('NAYIKA', '50500000004', '4dde77cd192e5101fe0a317e00ba3827'),
+('nicha23', '57000000005', '827ccb0eea8a706c4c34a16891f84e7b'),
+('prayut44', '50000000003', '83e6f2ccad3cd8f664caa0f553faca35');
 
 -- --------------------------------------------------------
 
@@ -281,7 +290,16 @@ CREATE TABLE `userinfo` (
 --
 
 INSERT INTO `userinfo` (`UserID`, `IdentificationNo`, `PassportNo`, `Name`, `DateofBirth`, `Nationality`, `Gender`, `HighestEducation`, `Occupation`, `MaritalStatus`, `ResidentialStatus`, `MobileNo`, `TelNo`, `Email`, `Address`, `ZIPCode`) VALUES
-('sitthisak55110', '2834472271400', '50000000001', 'Sitthisak Mahanin', '1997-03-10', 'Thailand', 'male', 'doctorate', 'Teacher', 'single', 'home', '-', '086422638', 'sitthisak_u_nick@hotmail.com', '126 Prachautit Road, Bangmod, Thung Khru, Bangkok 10140 Thailand', '10140');
+('CHERPRANG', '2834472271400', '-', 'CHERPRANG AREEKUL', '1991-03-10', 'Thai', 'female', 'doctorate', 'Teacher', 'single', 'home', '0200000001', '-', 'CHERPRANG_AREEKUL@hotmail.com', '2606/1', '10140'),
+('gerrard8', '6796423630766', '', 'Steven Gerrard', '1980-12-08', 'Thai', 'male', 'doctorate', 'Chef', 'single', 'condo', '085182236', '021854923', 'sg8@hotmail.com', '126/52 andfield road', '10120'),
+('JENNIS', '2786441755211', '-', 'JENNIS OPRASERT', '1988-02-05', 'Thai', 'male', 'master', 'Soilder', 'married', 'townhouse', '0200000002', '-', 'JENNIS_OPRASERT@hotmail.com', '2606/2', '10160'),
+('JETSUPA', '1883087075451', '-', 'JETSUPA KRUETANG', '1980-06-29', 'Thailand', 'male', 'master', 'Hotline', 'single', 'home', '0905165166', '086422638', 'JETSUPA_KRUETANG@hotmail.com', '126 Prachautit Road, Bangmod, Thung Khru, Bangkok 10140 Thailand', '10700'),
+('messi10', '7217452223867', '', 'Lionel Messi', '1987-03-10', 'Thai', 'male', 'master', 'Football Player', 'married', 'home', '0875019227', '021584192', 'messi10@gmail.com', '53/311', '10140'),
+('N3V4L0ZT', '6337771402140', '', 'Jaruwat Arunpai', '1997-03-10', 'Thai', 'male', 'bachelor', 'Student', 'single', 'home', '0815597570', '024632290', 'jaruwat197@hotmail.com', '53/311 bangkru ', '10140'),
+('NAPAPHAT', '1340287431326', '-', 'NAPAPHAT WORRAPHUTTANON', '1994-12-04', 'Thai', 'female', 'doctorate', 'Administer', 'single', 'home', '0200000004', '086422638', 'NAPAPHAT_WORRAPHUTTANON@hotmail.com', '126 Prachautit Road, Bangmod, Thung Khru, Bangkok 10140 Thailand', '10510'),
+('NAYIKA', '3531853232238', '-', 'NAYIKA SRINIAN', '1993-06-09', 'Thai', 'female', 'secondary', 'Chef', 'single', 'condo', '0864226383', '-', 'NAYIKA_SRINIAN@hotmail.com', '2606/3', '10220'),
+('nicha23', '3807844675036', '', 'Nichaphat', '1998-05-24', 'Thai', 'female', 'secondary', 'Gamer', 'single', 'condo', '0832541701', '024701711', 'nichapat.bie@gmail.com', '100/118 bangkurat bangbuathong nonthaburi', '10300'),
+('prayut44', '2667314867659', '', 'Prayut Chan-O-Cha', '1958-04-12', 'Thai', 'male', 'doctorate', 'Soilder', 'married', 'home', '0914536978', '024444444', 'TU44@gmail.com', 'Thai Army', '10520');
 
 -- --------------------------------------------------------
 
