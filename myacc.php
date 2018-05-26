@@ -48,7 +48,7 @@
 		color: #fff;
 		padding: 1rem 2rem;
 		display: inline-block;
-		width: 20%;
+		width: 100px;
 		background-color: #34a534;
 		margin: 30px 0 30px 10px;
 		text-align: center;
@@ -56,7 +56,7 @@
 	}
 
 	button[type=submit]:hover, button[type=submit]:active, button[type=submit]:focus {
-		background-color: #ee4b28!important;
+		background-color: #309630!important;
 	}
 
 	button[type=submit]:active, button[type=submit]:focus {
@@ -102,7 +102,7 @@
 	.left {
 		width: 700px;
 		height: 500px;
-		background-color: #456;
+		background-color: #eee;
 	}
 
 	.myinfo {
@@ -119,7 +119,7 @@
 	.acc {
 		padding: 30px;
 		height: 300px;
-		background-color: #283;
+		background-color: #eee;
 	}
 
 	.statement {
@@ -188,6 +188,7 @@ include_once 'phpConnect/connect.php';
 					$query_myinfo = mysqli_query($conn, $sql_myinfo);
 					$result_myinfo = mysqli_fetch_assoc($query_myinfo);
 					?>
+
 					<strong>UserID</strong>
 					<?php echo $UserID ?><br>
 					<strong>Name </strong>
@@ -221,7 +222,7 @@ include_once 'phpConnect/connect.php';
 
 			<div class="right">
 				<div class="acc">
-					Your Account(s) <br>
+					<strong>Your Account(s)</strong> <br>
 
 					<?php
 					$sql_acc = "SELECT userinfo.IdentificationNo, account.AccountNo
@@ -239,41 +240,29 @@ include_once 'phpConnect/connect.php';
 
 					<div class="accbar">
 						<form action="myacc1.php" method="post">
-							<select name="acctype">
-								<option value="" selected="selected" disabled="disabled">-- select account type --</option>
-								<?php
-								$sql_type = "SELECT TypeAccountID,TypeAccount FROM typeaccount";
-								if ($result_type = mysqli_query($conn, $sql_type)) {
-									while ($row_type = mysqli_fetch_array($result_type)) {
-										?>
-										<option value="<?php echo $row['TypeAccountID']?>"><?php echo $row_type['TypeAccount']?>
-											<?php
-										}
-										$result_type->close();
-									}
-									?>
-								</select>
-								<button type="submit" style="color: #fff text-decoration: none"><h3>Add</h3></button>
-							</form>
-						</div>
+							Account No. <input type="text"></input>
+
+							<button type="submit" style="color: #fff text-decoration: none"><h3>Add</h3></button>
+						</form>
 					</div>
+				</div>
 
 
-					<div class="statement">
-						Latest Statement
-					</div>
-				</div>	
-			</div>
-
+				<div class="statement">
+					<strong>Latest Statement </strong>
+				</div>
+			</div>	
 		</div>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-		<script>
-			$(document).ready(function(){
-				$(".accbar").hide();
-				$(".addacc").click(function(){
-					$(".accbar").toggle();
-				});
+
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$(".accbar").hide();
+			$(".addacc").click(function(){
+				$(".accbar").toggle();
 			});
-		</script>
-	</body>
-	</html> 
+		});
+	</script>
+</body>
+</html> 
