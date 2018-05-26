@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 26, 2018 at 12:52 PM
+-- Generation Time: May 26, 2018 at 02:06 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.2
 
@@ -244,6 +244,13 @@ CREATE TABLE `userid` (
   `Password` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `userid`
+--
+
+INSERT INTO `userid` (`UserID`, `AccountNo`, `Password`) VALUES
+('sitthisak55110', '50000000001', 'c764fa6be784c0cf8be04b8552305d59');
+
 -- --------------------------------------------------------
 
 --
@@ -268,6 +275,13 @@ CREATE TABLE `userinfo` (
   `Address` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `ZIPCode` varchar(5) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `userinfo`
+--
+
+INSERT INTO `userinfo` (`UserID`, `IdentificationNo`, `PassportNo`, `Name`, `DateofBirth`, `Nationality`, `Gender`, `HighestEducation`, `Occupation`, `MaritalStatus`, `ResidentialStatus`, `MobileNo`, `TelNo`, `Email`, `Address`, `ZIPCode`) VALUES
+('sitthisak55110', '2834472271400', '50000000001', 'Sitthisak Mahanin', '1997-03-10', 'Thailand', 'male', 'doctorate', 'Teacher', 'single', 'home', '-', '086422638', 'sitthisak_u_nick@hotmail.com', '126 Prachautit Road, Bangmod, Thung Khru, Bangkok 10140 Thailand', '10140');
 
 -- --------------------------------------------------------
 
