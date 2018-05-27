@@ -137,7 +137,7 @@ include_once 'phpConnect/connect.php';
 		</div>
 		<a href="myacc.php" name="myacc">My Account</a>
 		<a href="transfer.php" name="transfer">Transfer</a>
-		<a href="billpay.php" name="billpay">Bill Payment</a>
+		<a href="beforepay.php" name="billpay">Bill Payment</a>
 		<a href="settings.php" name="settings">Settings</a>
 		<a href="logout.php">Sign out</a>
 	</div>

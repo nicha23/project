@@ -26,7 +26,7 @@
         $_SESSION["UserID"]=$result['UserID'];
         $_SESSION["Password"]=$result['Password'];
         //echo "Session variables are set.";
-        echo "<script>setTimeout(\"location.href = 'myacc.php';\",1500);</script>";
+        echo "<script>setTimeout(\"location.href = 'myacc.php';\",500);</script>";
         //header('Location: myacc.php');
     }else{
         //echo "UserID or Password incorrect!";

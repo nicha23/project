@@ -3,6 +3,6 @@
   // destroy the session
   session_destroy();
 
-  header("Location: login.php"); //go to student view
+  echo "<script>setTimeout(\"location.href = 'login.php';\",500);</script>";
   exit;
  ?>
