@@ -1,28 +1,28 @@
 
 $(document).ready(function(){
 	$.ajax({
-		url: 'http://localhost/project/followersdata.php',
+		url: 'http://localhost/project/data.php',
 		method: "GET",
 		success: function(data) {
 			console.log(data);
-			var Department = [];
-			var COUNTstaff = [];
+			var District = [];
+			var CountUser = [];
 
 			for(var i in data) {
-				Department.push(data[i].departmentName);
-				COUNTstaff.push(data[i].COUNTstaff);
+				District.push(data[i].District);
+				CountUser.push(data[i].CountUser);
 			}
 
 			var chartdata = {
-				labels: Department,
+				labels: District,
 				datasets : [
 					{
-						label: 'Employees Count of each Department',
+						label: 'Count user of District ',
 						backgroundColor: 'rgba(195,132, 221, 1)',
 						borderColor: 'rgba(255,205,0, 1)',
 						hoverBackgroundColor: 'rgba(255,205,0, 1)',
 						hoverBorderColor: 'rgba(195,132, 221, 1)',
-						data: COUNTstaff
+						data: CountUser
 					}
 				]
 			};
