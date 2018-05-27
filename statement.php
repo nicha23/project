@@ -105,12 +105,6 @@ include_once 'phpConnect/connect.php';
 		font-weight: bold;
 	}
 
-	.transfer {
-		padding: 30px 30px 0px 60px;
-		background-color: #eee;
-		width: 600px;
-	}
-
 	.main {
 		margin-left: 280px; /* Same as the width of the sidenav */
 		margin-right: 300px;

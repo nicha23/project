@@ -142,6 +142,7 @@ include_once 'phpConnect/connect.php';
 		<a href="settings.php" name="settings">Settings</a>
 		<a href="logout.php">Sign out</a>
 	</div>
+	
 	<form action="transfer1.php" method="post">
 		<div class="main">
 			<h1>Transfer</h1>

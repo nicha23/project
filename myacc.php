@@ -110,7 +110,7 @@ include_once 'phpConnect/connect.php';
 	}
 
 	.left {
-		width: 700px;
+		width: 600px;
 		background-color: #eee;
 	}
 
@@ -200,32 +200,32 @@ include_once 'phpConnect/connect.php';
 					?>
 
 					<strong>UserID</strong>
-					<?php echo $result_myinfo['UserID']; ?><br>
-					<strong>Name </strong>
+					<?php echo $result_myinfo['UserID']; ?><br><br>
+					<strong>Name </strong><br>
 					<?php echo $result_myinfo['Name']; ?><br>
-					<strong>Date of Birth</strong>
+					<strong>Date of Birth</strong><br>
 					<?php echo $result_myinfo['DateofBirth'] ?><br>
-					<strong>Gender</strong>
+					<strong>Gender</strong><br>
 					<?php echo $result_myinfo['Gender'] ?><br>
-					<strong>Nationality</strong>
+					<strong>Nationality</strong><br>
 					<?php echo $result_myinfo['Nationality'] ?><br>
-					<strong>Highest Education</strong>
+					<strong>Highest Education</strong><br>
 					<?php echo $result_myinfo['HighestEducation'] ?><br>
-					<strong>Marital Status</strong>
+					<strong>Marital Status</strong><br>
 					<?php echo $result_myinfo['MaritalStatus'] ?><br>
-					<strong>Residential Status</strong>
+					<strong>Residential Status</strong><br>
 					<?php echo $result_myinfo['ResidentialStatus'] ?><br>
-					<strong>Occupation</strong>
+					<strong>Occupation</strong><br>
 					<?php echo $result_myinfo['Occupation'] ?><br>
-					<strong>Email</strong>
+					<strong>Email</strong><br>
 					<?php echo $result_myinfo['Email'] ?><br>
-					<strong>TelNo</strong>
+					<strong>TelNo</strong><br>
 					<?php echo $result_myinfo['TelNo'] ?><br>
-					<strong>Mobile No.</strong>
+					<strong>Mobile No.</strong><br>
 					<?php echo $result_myinfo['MobileNo'] ?><br>
-					<strong>Address</strong>
+					<strong>Address</strong><br>
 					<?php echo $result_myinfo['Address'] ?><br>
-					<strong>ZIPCode</strong>
+					<strong>ZIPCode</strong><br>
 					<?php echo $result_myinfo['ZIPCode'] ?><br>
 				</div>	
 			</div>
