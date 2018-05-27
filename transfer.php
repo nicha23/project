@@ -146,7 +146,7 @@ include_once 'phpConnect/connect.php';
 			<h1>Transfer</h1>
 			<div class="transfer">
 				Select your account <br>
-				<select name="accno" required>
+				<select name="AccountNo" required>
 					<option value="" selected="selected" disabled="disabled">-- select your account --</option>
 					<?php
 					$sql_acc = "SELECT userinfo.IdentificationNo, account.AccountNo
@@ -163,7 +163,7 @@ include_once 'phpConnect/connect.php';
 					</select><br><br>
 
 					Select Receiever's Bank <br>
-					<select name="bank" required>
+					<select name="BankID" required>
 						<option value="" selected="selected" disabled="disabled">-- select bank --</option>
 						<?php
 						$sql = "SELECT BankID,BankName FROM bank";
@@ -179,13 +179,13 @@ include_once 'phpConnect/connect.php';
 						</select><br><br>
 
 						Receiver's Account No. <br>
-						<input type="text" name="recaccno" required></input><br><br>
+						<input type="text" name="ReceiveAccountNo" required></input><br><br>
 
 						Amount <br>
-						<input type="text" name="amount" required></input><br><br>
+						<input type="text" name="Amount" required></input><br><br>
 
 						Note <br>
-						<textarea name="note" rows="4" cols="50" placeholder="Note about your transaction..."></textarea><br><br>
+						<textarea name="Note" rows="4" cols="50" placeholder="Note about your transaction..."></textarea><br><br>
 
 						<button type="submit" style="color: #fff text-decoration: none">
 							<h4>Okay</h4>
