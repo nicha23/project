@@ -25,9 +25,9 @@
     // print_r($result11);
     
     if ($result11 != NULL) {
-        $_SESSION['PaymentCode'] = '$PaymentCode';
-        $_SESSION['Amount'] = '$result11';
-        $_SESSION['CompanyName'] = '$result12';
+        $_SESSION['PaymentCode'] = $PaymentCode;
+        $_SESSION['Amount'] = $result11;
+        $_SESSION['CompanyName'] = $result12;
         echo "<script>setTimeout(\"location.href = 'billpay.php';\",0);</script>";
     }else{
         echo '<script language="javascript">';
