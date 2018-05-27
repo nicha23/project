@@ -1,13 +1,14 @@
 <?php 
 session_start();
 $UserID = $_SESSION['UserID'];
-$PaymentCode = $_SESSION['PaymentCode'];
+$AccountNo = $_SESSION['AccountNo'];
+$BankName = $_SESSION['BankName'];
+$ReceiveAccountNo = $_SESSION['ReceiveAccountNo'];
 $Amount = $_SESSION['Amount'];
-$CompanyName = $_SESSION['CompanyName'];
-$AccountNo = $_SESSION['AccountNo'] ;
-$CurrentBalance = $_SESSION['CurrentBalance'] ;
-$Note = $_SESSION['Note'] ;
-
+$Fee = $_SESSION['Fee'];
+$Total = $_SESSION['Total'];
+$CurrentBalance = $_SESSION['CurrentBalance'];
+$Note = $_SESSION['Note'];
 include_once 'phpConnect/connect.php';
 ?>
 
@@ -63,7 +64,7 @@ include_once 'phpConnect/connect.php';
 		display: inline-block;
 		width: 200px;
 		background-color: #34a534;
-		margin: 60px 0 30px 10px;
+		margin: 30px 0 30px 10px;
 		text-align: center;
 		float: right;
 	}
@@ -106,14 +107,14 @@ include_once 'phpConnect/connect.php';
 		font-weight: bold; 
 	}
 
-	.sidenav>a[name="billpay"] {
+	.sidenav>a[name="transfer"] {
 		background-color: #3f474f;
 		color: #000;
 		font-weight: bold;
 	}
 
-	.billpay {
-		padding: 30px 30px 30px 30px;
+	.transfer {
+		padding: 30px 30px 0px 30px;
 		background-color: #eee;
 		width: 600px;
 	}
@@ -135,6 +136,7 @@ include_once 'phpConnect/connect.php';
 		}
 	}
 </style>
+
 </head>
 <body>
 	<div class="sidenav">
@@ -143,54 +145,45 @@ include_once 'phpConnect/connect.php';
 		</div>
 		<a href="myacc.php" name="myacc">My Account</a>
 		<a href="transfer.php" name="transfer">Transfer</a>
-		<a href="billpay.php" name="billpay">Bill Payment</a>
+		<a href="beforepay.php" name="billpay">Bill Payment</a>
 		<a href="settings.php" name="settings">Settings</a>
 		<a href="logout.php">Sign out</a>
 	</div>
-	
 	<form action="myacc.php" method="post">
 		<div class="main">
-			<h1>Bill Receipt</h1>
-			<div class="billpay">
-				
-					Account Number<br>
+			<h1>Transfer</h1>
+			<div class="transfer">
+                    Account Number<br>
 					<?php echo $AccountNo ?><br><br>
 
-                    Payment Code<br>
-					<?php echo $PaymentCode ?><br><br>
+					Receiever's Bank <br>
+					<?php echo $BankName ?><br><br>
 
-					Amount <br>
+					Receiver's Account Number <br>
+					<?php echo $ReceiveAccountNo ?><br><br>
+					
+                    Amount <br>
 					<?php echo $Amount ?><br><br>
 
-					Company Name <br>
-					<?php echo $CompanyName ?><br><br>
+                    Fee <br>
+					<?php echo $Fee ?><br><br>
+
+                    Total <br>
+					<?php echo $Total ?><br><br>
 
                     Current Balance <br>
 					<?php echo $CurrentBalance ?><br><br>
 
-                    Note <br>
+					Note <br>
 					<?php echo $Note ?><br><br>
 
 
-					<button type="submit" style="color: #fff text-decoration: none">
-						<h4>Okay</h4>
-					</button>
+						<button type="submit" style="color: #fff text-decoration: none">
+							<h4>Okay</h4>
+						</button>
+					</div>
 				</div>
-			</div>
-		</form>
+			</form>
 
-
-		<script>
-			function showAmount() {
-				var x = document.getElementById("psw");
-				if (x.type === "password") {
-					x.type = "text";
-				} else {
-					x.type = "password";
-				}
-			}
-
-			
-		</script>
-	</body>
-	</html> 
+		</body>
+		</html> 

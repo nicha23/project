@@ -149,8 +149,8 @@ include_once 'phpConnect/connect.php';
 				<select name="AccountNo" required>
 					<option value="" selected="selected" disabled="disabled">-- select your account --</option>
 					<?php
-					$sql_acc = "SELECT userinfo.IdentificationNo, account.AccountNo
-					FROM userinfo INNER JOIN account ON userinfo.IdentificationNo=account.IdentificationNo WHERE userinfo.UserID='$UserID';";     
+					$sql_acc = "SELECT AccountNo
+					FROM userid WHERE UserID='$UserID';";     
 					if ($result_acc = mysqli_query($conn, $sql_acc)) {
 						while ($row_acc = mysqli_fetch_array($result_acc)) {
 						?>
