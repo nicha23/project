@@ -16,10 +16,9 @@ if(!$mysqli){
 }
 
 //query to get data from the table
-$query = sprintf("SELECT z.District, COUNT( u.UserID) AS CountUser
-FROM userinfo u,zip z
-WHERE z.ZIPCode = u.ZIPCode 
-GROUP BY z.District;");
+$query = sprintf("SELECT Gender, COUNT( UserID) AS CountUser
+FROM userinfo
+GROUP BY Gender;");
 
 //execute query
 $result = $mysqli->query($query);

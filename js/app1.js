@@ -1,23 +1,23 @@
 
 $(document).ready(function(){
 	$.ajax({
-		url: 'http://localhost/project/followersdata.php',
+		url: 'http://localhost/project/followersdata1.php',
 		method: "GET",
 		success: function(data) {
 			console.log(data);
-			var District = [];
+			var Gender = [];
 			var CountUser = [];
 
 			for(var i in data) {
-				District.push(data[i].District);
+				Gender.push(data[i].Gender);
 				CountUser.push(data[i].CountUser);
 			}
 
 			var chartdata = {
-				labels: District,
+				labels: Gender,
 				datasets : [
 					{
-						label: 'Count user of District ',
+						label: 'Count user of Gender ',
 						backgroundColor: 'rgba(195,132, 221, 1)',
 						borderColor: 'rgba(255,205,0, 1)',
 						hoverBackgroundColor: 'rgba(255,205,0, 1)',
