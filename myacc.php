@@ -239,37 +239,54 @@ include_once 'phpConnect/connect.php';
 						</form>
 					</div>
 
-					<div class="myacc">				
-						<div class="accinfobar">
+					
 							<?php $sql_acc1 = "SELECT typeaccount.TypeAccount, userid.AccountNo, account.Balance 
 												FROM userid 
 												INNER JOIN account ON  userid.AccountNo=account.AccountNo
 												INNER JOIN typeaccount ON account.TypeAccountID=typeaccount.TypeAccountID 
 												WHERE userid.UserID='$UserID'";
 							$query_acc1 = mysqli_query($conn, $sql_acc1);
-							$result_acc1 = mysqli_fetch_assoc($query_acc1);
+							//$result_acc1 = mysqli_fetch_assoc($query_acc1);
+							$sql_acc2 = "SELECT userid.AccountNo,branchinfo.BranchName FROM userid 
+												INNER JOIN account ON  userid.AccountNo=account.AccountNo
+												INNER JOIN branchinfo ON account.BranchID=branchinfo.BranchID 
+												WHERE userid.UserID='$UserID'"; 
+							$query_acc2 = mysqli_query($conn, $sql_acc2);
+							//$result_acc2 = mysqli_fetch_assoc($query_acc2);
+							while(($result_acc1 = mysqli_fetch_assoc($query_acc1))&&($result_acc2 = mysqli_fetch_assoc($query_acc2))){
+								echo '<div class="myacc">	<div class="accinfobar">'	;
+								echo "<strong>Account Number</strong>";
+								echo " : ".$result_acc1['AccountNo'];
+								echo "<br><strong>Balance</strong>";
+								echo " : ".$result_acc1['Balance'];
+								echo "<br><strong>Type Account</strong>";
+								echo " : ".$result_acc1['TypeAccount'];
+								echo "<br><strong>Branch</strong>";
+								echo " : ".$result_acc2['BranchName'];
+								echo "</div></div><br>";
+							}
 							?>
-							<strong>Acc No.</strong>
+							<!-- <strong>Acc No.</strong>
 							<?php echo $result_acc1['AccountNo'] ?><br>
 							<strong>Balance</strong>
 							<?php echo $result_acc1['Balance'] ?><br>
 							<strong>Type Account</strong>
 							<?php echo $result_acc1['TypeAccount'] ?><br>
 
-							<?php $sql_acc2 = "SELECT userid.AccountNo,branchinfo.BranchName FROM userid 
+							 <?php $sql_acc2 = "SELECT userid.AccountNo,branchinfo.BranchName FROM userid 
 												INNER JOIN account ON  userid.AccountNo=account.AccountNo
 												INNER JOIN branchinfo ON account.BranchID=branchinfo.BranchID 
 												WHERE userid.UserID='$UserID'"; 
 							$query_acc2 = mysqli_query($conn, $sql_acc2);
 							$result_acc2 = mysqli_fetch_assoc($query_acc2);
-							?>
+							?> 
 							<strong>Branch</strong>
-							<?php echo $result_acc2['BranchName'] ?><br>
+							<?php echo $result_acc2['BranchName'] ?><br> -->
 							<div class="newacc" id="newacc">
 								
 							</div>
-						</div>
-					</div>			
+						<!-- </div>
+					</div>			 -->
 				</div>
 			</div>	
 		</div>
