@@ -163,7 +163,7 @@ include_once 'phpConnect/connect.php';
 					</select><br><br>
 
 					Payment Code<br>
-					<input type="text" name="paycode"></input><br><br>
+					<input type="text" name="PaymentCode"></input><br><br>
 
 					Amount <br>
 					<input type="text" name="amount"></input><br><br>
