@@ -7,7 +7,7 @@ include_once 'phpConnect/connect.php';
 <html lang="en">
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>My Statement</title>
+	<title>JBU Online Banking System</title>
 	<style>
 	body {
 		font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
