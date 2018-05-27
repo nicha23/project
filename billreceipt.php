@@ -15,6 +15,7 @@ include_once 'phpConnect/connect.php';
 <html>
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Bill Payment Receipt</title>
 	<style>
 	body {
 		font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
