@@ -174,7 +174,6 @@
 			<label for="gender"><b>Gender</b></label><br>
 			<input type="radio" name="Gender" value="male" checked> Male <br>
 			<input type="radio" name="Gender" value="female"> Female <br>
-			<input type="radio" name="Gender" value="other"> Other<br><br>
 
 			<label for="nationality"><b>Nationality</b></label>
 			<input type="text" placeholder="Enter Nationality" name="Nationality" required>
