@@ -271,7 +271,7 @@ include_once 'phpConnect/connect.php';
 
 					<div class="accbar">
 						<form action="myacc1.php" method="post">
-							Account No. <input type="text"></input>
+							Account No. <input type="text" name = 'NewAccountNo'></input>
 							<button type="submit" style="color: #fff text-decoration: none">Add</button>
 						</form>
 					</div>

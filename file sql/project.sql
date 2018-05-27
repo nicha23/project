@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 26, 2018 at 06:09 PM
+-- Generation Time: May 27, 2018 at 11:55 AM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.2
 
@@ -252,6 +252,8 @@ INSERT INTO `userid` (`UserID`, `AccountNo`, `Password`) VALUES
 ('CHERPRANG', '50000000001', '0ff89de99d4a8f4b04cb162bcb5740cf'),
 ('gerrard8', '60500000001', '4ebac1ea54c153b89443867fa57e106c'),
 ('JENNIS', '50500000001', '639fc2398fd45606ada087e30168287b'),
+('JENNIS', '50500000002', '639fc2398fd45606ada087e30168287b'),
+('JENNIS', '50500000003', '639fc2398fd45606ada087e30168287b'),
 ('JETSUPA', '57000000002', '772a12a3721c69f0abc363824e6cf1b6'),
 ('messi10', '50500000005', '731c110542108947840060ad7d996c38'),
 ('N3V4L0ZT', '56500000002', '7ff1b2771924ca37deb7f657ed87ba97'),
@@ -459,8 +461,8 @@ ALTER TABLE `transaction`
 -- Constraints for table `userid`
 --
 ALTER TABLE `userid`
-  ADD CONSTRAINT `AccountNo` FOREIGN KEY (`AccountNo`) REFERENCES `account` (`AccountNo`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `UserID` FOREIGN KEY (`UserID`) REFERENCES `userinfo` (`UserID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `AccountNo` FOREIGN KEY (`AccountNo`) REFERENCES `account` (`AccountNo`),
+  ADD CONSTRAINT `UserID` FOREIGN KEY (`UserID`) REFERENCES `userinfo` (`UserID`);
 
 --
 -- Constraints for table `userinfo`
