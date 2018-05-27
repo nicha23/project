@@ -10,8 +10,10 @@
         echo "Failed to connect to MySQL: " . mysqli_connect_error();
     }
     // escape variables for security
+    $UserID = $_SESSION['UserID'];
     $PaymentCode = $_SESSION['PaymentCode'];
     $Amount = $_SESSION['Amount'];
+    $CompanyName = $_SESSION['CompanyName'];
     
     #check amount in paymentcode
     $sql_Amount_check1 = "SELECT Amount,CompanyName FROM billinfo WHERE PaymentCode ='$PaymentCode'";     
