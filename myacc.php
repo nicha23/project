@@ -241,7 +241,11 @@ include_once 'phpConnect/connect.php';
 
 					<div class="myacc">				
 						<div class="accinfobar">
-							<?php $sql_acc1 = "SELECT typeaccount.TypeAccount, userinfo.IdentificationNo, account.AccountNo, account.Balance FROM userinfo INNER JOIN account ON userinfo.IdentificationNo=account.IdentificationNo INNER JOIN typeaccount ON account.TypeAccountID=typeaccount.TypeAccountID WHERE userinfo.UserID='$UserID'"; 
+							<?php $sql_acc1 = "SELECT typeaccount.TypeAccount, userid.AccountNo, account.Balance 
+												FROM userid 
+												INNER JOIN account ON  userid.AccountNo=account.AccountNo
+												INNER JOIN typeaccount ON account.TypeAccountID=typeaccount.TypeAccountID 
+												WHERE userid.UserID='$UserID'";
 							$query_acc1 = mysqli_query($conn, $sql_acc1);
 							$result_acc1 = mysqli_fetch_assoc($query_acc1);
 							?>
@@ -252,12 +256,15 @@ include_once 'phpConnect/connect.php';
 							<strong>Type Account</strong>
 							<?php echo $result_acc1['TypeAccount'] ?><br>
 
-							<?php $sql_acc2 = "SELECT branchinfo.branchname, userinfo.IdentificationNo, account.AccountNo, account.Balance FROM userinfo INNER JOIN account ON userinfo.IdentificationNo=account.IdentificationNo INNER JOIN branchinfo ON account.branchid=branchinfo.branchid WHERE userinfo.UserID='$UserID'"; 
+							<?php $sql_acc2 = "SELECT userid.AccountNo,branchinfo.BranchName FROM userid 
+												INNER JOIN account ON  userid.AccountNo=account.AccountNo
+												INNER JOIN branchinfo ON account.BranchID=branchinfo.BranchID 
+												WHERE userid.UserID='$UserID'"; 
 							$query_acc2 = mysqli_query($conn, $sql_acc2);
 							$result_acc2 = mysqli_fetch_assoc($query_acc2);
 							?>
 							<strong>Branch</strong>
-							<?php echo $result_acc2['branchname'] ?><br>
+							<?php echo $result_acc2['BranchName'] ?><br>
 							<div class="newacc" id="newacc">
 								
 							</div>
