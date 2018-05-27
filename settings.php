@@ -63,11 +63,11 @@ include_once 'phpConnect/connect.php';
 	}
 
 	button[type=submit]:hover, button[type=submit]:active, button[type=submit]:focus {
-		background-color: #ee4b28!important;
+		background-color: #309630!important;
 	}
 
 	button[type=submit]:active, button[type=submit]:focus {
-		box-shadow: 0 0 0 .2rem rgba(240,95,64,.5)!important;
+		box-shadow: 0 0 0 .2rem rgba(67,209,54,.5)!important;
 	}
 
 	.sidenav {

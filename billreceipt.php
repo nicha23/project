@@ -158,9 +158,11 @@ include_once 'phpConnect/connect.php';
 
 				<strong>Payment Code</strong><br>
 				<?php echo $PaymentCode ?><br><br>
-
+				
+				
 				<strong>Amount </strong><br>
 				<?php echo $Amount ?> baht<br><br>
+				
 
 				<strong>Company Name </strong><br>
 				<?php echo $CompanyName ?><br><br>

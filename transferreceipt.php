@@ -114,7 +114,7 @@ include_once 'phpConnect/connect.php';
 	}
 
 	.transfer {
-		padding: 30px 30px 0px 30px;
+		padding: 30px 30px 0px 60px;
 		background-color: #eee;
 		width: 600px;
 	}
@@ -151,7 +151,7 @@ include_once 'phpConnect/connect.php';
 	</div>
 	<form action="myacc.php" method="post">
 		<div class="main">
-			<h1>Transfer</h1>
+			<h1>Transfer Receipt</h1>
 			<div class="transfer">
 				<strong>Account Number</strong><br>
 				<?php echo $AccountNo ?><br><br>

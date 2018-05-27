@@ -66,11 +66,11 @@ include_once 'phpConnect/connect.php';
 	}
 
 	button[type=submit]:hover, button[type=submit]:active, button[type=submit]:focus {
-		background-color: #ee4b28!important;
+		background-color: #309630!important;
 	}
 
 	button[type=submit]:active, button[type=submit]:focus {
-		box-shadow: 0 0 0 .2rem rgba(240,95,64,.5)!important;
+		box-shadow: 0 0 0 .2rem rgba(67,209,54,.5)!important;
 	}
 
 	.sidenav {
@@ -113,6 +113,15 @@ include_once 'phpConnect/connect.php';
 		padding: 30px 30px 30px 30px;
 		background-color: #eee;
 		width: 600px;
+	}
+
+	.bar {
+		width: 575px;
+		height: 45px;
+		padding-left: 15px;
+		display: inline-block;
+		border: none;
+		background: #ddd;
 	}
 
 	.main {
@@ -167,13 +176,21 @@ include_once 'phpConnect/connect.php';
 					</select><br><br>
 
 					Payment Code<br>
-					<?php echo $PaymentCode ?><br><br>
+					<div class="bar">
+						<?php echo $PaymentCode ?>
+					</div><br><br>
 
 					Amount <br>
-					<?php echo $Amount ?><br><br>
+					<div class="bar">
+						<?php echo $Amount ?>
+					</div><br><br>
+					
 
 					Company Name <br>
-					<?php echo $CompanyName ?><br><br>
+					<div class="bar">
+						<?php echo $CompanyName ?>
+					</div><br><br>
+				
 
 					Note <br>
 					<textarea name="Note" rows="4" cols="50" placeholder="Note about your transaction..."></textarea><br>

@@ -22,7 +22,7 @@ include_once 'phpConnect/connect.php';
 		color: Tomato;
 		font-size: 25px;
 	}
-	
+
 	input[type=text], textarea {
 		width: 200px;
 		padding: 15px;
@@ -65,7 +65,7 @@ include_once 'phpConnect/connect.php';
 	}
 
 	button[type=submit]:active, button[type=submit]:focus {
-		box-shadow: 0 0 0 .2rem rgba(240,95,64,.5)!important;
+		box-shadow: 0 0 0 .2rem rgba(67,209,54,.5)!important;
 	}
 
 	.sidenav {
@@ -106,24 +106,22 @@ include_once 'phpConnect/connect.php';
 
 	.left {
 		width: 700px;
-		height: 500px;
 		background-color: #eee;
 	}
 
 	.myinfo {
 		padding: 30px;
-		height: 300px;
+		height: auto;
 	}
 
 	.right {
 		margin-left: 30px;
 		width: 600px;	
-
 	}
 
 	.acc {
 		padding: 30px;
-		height: 400px;
+		height: auto;
 		background-color: #eee;
 	}
 	
@@ -132,6 +130,12 @@ include_once 'phpConnect/connect.php';
 		background-color: #777;
 		border-radius: 20px; 
 		color: #fff;
+		cursor: pointer;
+	}
+
+
+	.myacc>a {
+		text-decoration: none;
 	}
 
 	.addacc {
@@ -238,34 +242,33 @@ include_once 'phpConnect/connect.php';
 							<button type="submit" id="add" style="color: #fff text-decoration: none">Add</button>
 						</form>
 					</div>
-
 					
-							<?php $sql_acc1 = "SELECT typeaccount.TypeAccount, userid.AccountNo, account.Balance 
-												FROM userid 
-												INNER JOIN account ON  userid.AccountNo=account.AccountNo
-												INNER JOIN typeaccount ON account.TypeAccountID=typeaccount.TypeAccountID 
-												WHERE userid.UserID='$UserID'";
-							$query_acc1 = mysqli_query($conn, $sql_acc1);
+					<?php $sql_acc1 = "SELECT typeaccount.TypeAccount, userid.AccountNo, account.Balance 
+					FROM userid 
+					INNER JOIN account ON  userid.AccountNo=account.AccountNo
+					INNER JOIN typeaccount ON account.TypeAccountID=typeaccount.TypeAccountID 
+					WHERE userid.UserID='$UserID'";
+					$query_acc1 = mysqli_query($conn, $sql_acc1);
 							//$result_acc1 = mysqli_fetch_assoc($query_acc1);
-							$sql_acc2 = "SELECT userid.AccountNo,branchinfo.BranchName FROM userid 
-												INNER JOIN account ON  userid.AccountNo=account.AccountNo
-												INNER JOIN branchinfo ON account.BranchID=branchinfo.BranchID 
-												WHERE userid.UserID='$UserID'"; 
-							$query_acc2 = mysqli_query($conn, $sql_acc2);
+					$sql_acc2 = "SELECT userid.AccountNo,branchinfo.BranchName FROM userid 
+					INNER JOIN account ON  userid.AccountNo=account.AccountNo
+					INNER JOIN branchinfo ON account.BranchID=branchinfo.BranchID 
+					WHERE userid.UserID='$UserID'"; 
+					$query_acc2 = mysqli_query($conn, $sql_acc2);
 							//$result_acc2 = mysqli_fetch_assoc($query_acc2);
-							while(($result_acc1 = mysqli_fetch_assoc($query_acc1))&&($result_acc2 = mysqli_fetch_assoc($query_acc2))){
-								echo '<div class="myacc">	<div class="accinfobar">'	;
-								echo "<strong>Account Number</strong>";
-								echo " : ".$result_acc1['AccountNo'];
-								echo "<br><strong>Balance</strong>";
-								echo " : ".$result_acc1['Balance'];
-								echo "<br><strong>Type Account</strong>";
-								echo " : ".$result_acc1['TypeAccount'];
-								echo "<br><strong>Branch</strong>";
-								echo " : ".$result_acc2['BranchName'];
-								echo "</div></div><br>";
-							}
-							?>
+					while(($result_acc1 = mysqli_fetch_assoc($query_acc1))&&($result_acc2 = mysqli_fetch_assoc($query_acc2))){
+						echo '<div class="myacc">	<div class="accinfobar"> <a href="hee.php"> '	;
+						echo "<strong>Account Number</strong>";
+						echo " : ".$result_acc1['AccountNo'];
+						echo "<br><strong>Balance</strong>";
+						echo " : ".$result_acc1['Balance'];
+						echo "<br><strong>Type Account</strong>";
+						echo " : ".$result_acc1['TypeAccount'];
+						echo "<br><strong>Branch</strong>";
+						echo " : ".$result_acc2['BranchName'];
+						echo "</a></div></div><br>";
+					}
+					?>
 							<!-- <strong>Acc No.</strong>
 							<?php echo $result_acc1['AccountNo'] ?><br>
 							<strong>Balance</strong>
@@ -286,32 +289,19 @@ include_once 'phpConnect/connect.php';
 								
 							</div>
 						<!-- </div>
-					</div>			 -->
-				</div>
-			</div>	
+						</div>			 -->
+					</div>
+				</div>	
+			</div>
 		</div>
-	</div>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script>
-		$(document).ready(function(){
-			$(".accbar").hide();
-			$(".addacc").click(function(){
-				$(".accbar").toggle();
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				$(".accbar").hide();
+				$(".addacc").click(function(){
+					$(".accbar").toggle();
+				});
 			});
-		});
-
-
-		function showCustomer() {
-			var xhttp; 
-			xhttp = new XMLHttpRequest();
-			xhttp.onreadystatechange = function() {
-				if (this.readyState == 4 && this.status == 200) {
-					document.getElementById("newacc").innerHTML = this.responseText;
-				}
-			};
-			xhttp.open("GET", "getcustomer.asp?q="+str, true);
-			xhttp.send();
-		}
-	</script>
-</body>
-</html> 
+		</script>
+	</body>
+	</html> 
