@@ -126,17 +126,9 @@ include_once 'phpConnect/connect.php';
 		height: 400px;
 		background-color: #eee;
 	}
-
-	.statement {
-		margin-top: 30px;
-		padding: 30px;
-		height: 100px;
-		background-color: #eee;
-	}
 	
 	.myacc {
-		padding: 30px;
-		cursor: pointer;
+		padding: 20px;
 		background-color: #777;
 		border-radius: 20px; 
 		color: #fff;
@@ -146,9 +138,14 @@ include_once 'phpConnect/connect.php';
 		cursor: pointer;
 	}
 
+	.addacc:hover {
+		cursor: pointer;
+		color: Tomato;
+	}
+
 	.accbar {
 		background-color: #eee;
-		padding: 10px 10px 10px 10px;
+		padding: 5px 0px 5px 5px;
 	}
 
 	.main {
@@ -231,22 +228,29 @@ include_once 'phpConnect/connect.php';
 
 			<div class="right">
 				<div class="acc">
-					<strong>Your Account(s)</strong> <br>
-					<div class="myacc">
-						<strong>Acc No.</strong>
-						<?php
-						$sql_acc = "SELECT userinfo.IdentificationNo, account.AccountNo, account.Balance
-						FROM userinfo
-						INNER JOIN account ON userinfo.IdentificationNo=account.IdentificationNo WHERE userinfo.UserID='$UserID';";     
-						$query_acc = mysqli_query($conn, $sql_acc);
-						$result_acc = mysqli_fetch_assoc($query_acc);
-						?>
+					<strong>Your Account(s)</strong>
+					<div class="addacc">
+						<img src="img/png/add.png" alt="add" width="17px" height="17px"></img> Add account
+					</div>
+					<div class="accbar">
+						<form action="myacc1.php" method="post">
+							Account No. <input type="text" name = 'NewAccountNo'></input>
+							<button type="submit" id="add" style="color: #fff text-decoration: none">Add</button>
+						</form>
+					</div>
 
-						<?php echo $result_acc['AccountNo'] ?><br>
-
+					<div class="myacc">				
 						<div class="accinfobar">
+							<?php $sql_acc1 = "SELECT typeaccount.TypeAccount, userinfo.IdentificationNo, account.AccountNo, account.Balance FROM userinfo INNER JOIN account ON userinfo.IdentificationNo=account.IdentificationNo INNER JOIN typeaccount ON account.TypeAccountID=typeaccount.TypeAccountID WHERE userinfo.UserID='$UserID'"; 
+							$query_acc1 = mysqli_query($conn, $sql_acc1);
+							$result_acc1 = mysqli_fetch_assoc($query_acc1);
+							?>
+							<strong>Acc No.</strong>
+							<?php echo $result_acc1['AccountNo'] ?><br>
 							<strong>Balance</strong>
-							<?php echo $result_acc['Balance'] ?><br>
+							<?php echo $result_acc1['Balance'] ?><br>
+							<strong>Type Account</strong>
+							<?php echo $result_acc1['TypeAccount'] ?><br>
 
 							<?php $sql_acc2 = "SELECT branchinfo.branchname, userinfo.IdentificationNo, account.AccountNo, account.Balance FROM userinfo INNER JOIN account ON userinfo.IdentificationNo=account.IdentificationNo INNER JOIN branchinfo ON account.branchid=branchinfo.branchid WHERE userinfo.UserID='$UserID'"; 
 							$query_acc2 = mysqli_query($conn, $sql_acc2);
@@ -254,36 +258,14 @@ include_once 'phpConnect/connect.php';
 							?>
 							<strong>Branch</strong>
 							<?php echo $result_acc2['branchname'] ?><br>
-
-							<?php $sql_acc3 = "SELECT typeaccount.TypeAccount, userinfo.IdentificationNo, account.AccountNo, account.Balance FROM userinfo INNER JOIN account ON userinfo.IdentificationNo=account.IdentificationNo INNER JOIN typeaccount ON account.TypeAccountID=typeaccount.TypeAccountID WHERE userinfo.UserID='$UserID'"; 
-							$query_acc3 = mysqli_query($conn, $sql_acc3);
-							$result_acc3 = mysqli_fetch_assoc($query_acc3);
-							?>
-							<strong>Type Account</strong>
-							<?php echo $result_acc3['TypeAccount'] ?><br>
+							<div class="newacc" id="newacc">
+								
+							</div>
 						</div>
-
 					</div>			
-
-					<div class="addacc">
-						<br><img src="img/png/add.png" alt="add" width="17px" height="17px"></img> Add account
-					</div>
-
-					<div class="accbar">
-						<form action="myacc1.php" method="post">
-							Account No. <input type="text" name = 'NewAccountNo'></input>
-							<button type="submit" style="color: #fff text-decoration: none">Add</button>
-						</form>
-					</div>
-				</div>
-
-
-				<div class="statement">
-					<strong>Latest Statement </strong>
 				</div>
 			</div>	
 		</div>
-
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script>
@@ -293,6 +275,19 @@ include_once 'phpConnect/connect.php';
 				$(".accbar").toggle();
 			});
 		});
+
+
+		function showCustomer() {
+			var xhttp; 
+			xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					document.getElementById("newacc").innerHTML = this.responseText;
+				}
+			};
+			xhttp.open("GET", "getcustomer.asp?q="+str, true);
+			xhttp.send();
+		}
 	</script>
 </body>
 </html> 

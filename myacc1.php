@@ -44,7 +44,7 @@
         echo '</script>';
         echo "<script>setTimeout(\"location.href = 'myacc.php';\",0);</script>";
     }else{
-        if($result33 != NULL){
+        if($result33 != NULL){/////////////////////////////////////////////////////////////////////////////////////
             
             $sql="INSERT INTO userid (UserID,AccountNo,Password)
             VALUES ('$UserID','$NewAccountNo', '$Password')";
@@ -57,6 +57,7 @@
             echo 'alert("Add New Account successfully")';
             echo '</script>';
             echo "<script>setTimeout(\"location.href = 'myacc.php';\",0);</script>";
+            //////////////////////////////////////////////////////////////////////////////////////////////////////
         }
         else{
             //echo "HAVE detail of my Identification and You go to login";
