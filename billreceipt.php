@@ -153,44 +153,44 @@ include_once 'phpConnect/connect.php';
 			<h1>Bill Receipt</h1>
 			<div class="billpay">
 				
-					Account Number<br>
-					<?php echo $AccountNo ?><br><br>
+				<strong>Account Number</strong><br>
+				<?php echo $AccountNo ?><br><br>
 
-                    Payment Code<br>
-					<?php echo $PaymentCode ?><br><br>
+				<strong>Payment Code</strong><br>
+				<?php echo $PaymentCode ?><br><br>
 
-					Amount <br>
-					<?php echo $Amount ?><br><br>
+				<strong>Amount </strong><br>
+				<?php echo $Amount ?> baht<br><br>
 
-					Company Name <br>
-					<?php echo $CompanyName ?><br><br>
+				<strong>Company Name </strong><br>
+				<?php echo $CompanyName ?><br><br>
 
-                    Current Balance <br>
-					<?php echo $CurrentBalance ?><br><br>
+				<strong>Current Balance </strong><br>
+				<?php echo $CurrentBalance ?> baht<br><br>
 
-                    Note <br>
-					<?php echo $Note ?><br><br>
+				<strong>Note </strong><br>
+				<?php echo $Note ?><br><br>
 
 
-					<button type="submit" style="color: #fff text-decoration: none">
-						<h4>Okay</h4>
-					</button>
-				</div>
+				<button type="submit" style="color: #fff text-decoration: none">
+					<h4>Okay</h4>
+				</button>
 			</div>
-		</form>
+		</div>
+	</form>
 
 
-		<script>
-			function showAmount() {
-				var x = document.getElementById("psw");
-				if (x.type === "password") {
-					x.type = "text";
-				} else {
-					x.type = "password";
-				}
+	<script>
+		function showAmount() {
+			var x = document.getElementById("psw");
+			if (x.type === "password") {
+				x.type = "text";
+			} else {
+				x.type = "password";
 			}
+		}
 
-			
-		</script>
-	</body>
-	</html> 
+
+	</script>
+</body>
+</html> 

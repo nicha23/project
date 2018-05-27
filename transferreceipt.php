@@ -153,37 +153,37 @@ include_once 'phpConnect/connect.php';
 		<div class="main">
 			<h1>Transfer</h1>
 			<div class="transfer">
-                    Account Number<br>
-					<?php echo $AccountNo ?><br><br>
+				<strong>Account Number</strong><br>
+				<?php echo $AccountNo ?><br><br>
 
-					Receiever's Bank <br>
-					<?php echo $BankName ?><br><br>
+				<strong>Receiever's Bank </strong><br>
+				<?php echo $BankName ?><br><br>
 
-					Receiver's Account Number <br>
-					<?php echo $ReceiveAccountNo ?><br><br>
-					
-                    Amount <br>
-					<?php echo $Amount ?><br><br>
+				<strong>Receiver's Account Number </strong><br>
+				<?php echo $ReceiveAccountNo ?><br><br>
 
-                    Fee <br>
-					<?php echo $Fee ?><br><br>
+				<strong>Amount </strong><br>
+				<?php echo $Amount ?> baht<br><br>
 
-                    Total <br>
-					<?php echo $Total ?><br><br>
+				<strong>Fee </strong><br>
+				<?php echo $Fee ?> baht<br><br>
 
-                    Current Balance <br>
-					<?php echo $CurrentBalance ?><br><br>
+				<strong>Total </strong><br>
+				<?php echo $Total ?> baht<br><br>
 
-					Note <br>
-					<?php echo $Note ?><br><br>
+				<strong>Current Balance</strong> <br>
+				<?php echo $CurrentBalance ?> baht<br><br>
+
+				<strong>Note </strong><br>
+				<?php echo $Note ?><br><br>
 
 
-						<button type="submit" style="color: #fff text-decoration: none">
-							<h4>Okay</h4>
-						</button>
-					</div>
-				</div>
-			</form>
+				<button type="submit" style="color: #fff text-decoration: none">
+					<h4>Okay</h4>
+				</button>
+			</div>
+		</div>
+	</form>
 
-		</body>
-		</html> 
+</body>
+</html> 

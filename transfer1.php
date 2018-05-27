@@ -74,6 +74,7 @@ if ($BankID=="000") { //1check bankID
 			}
 		$Fee = "0";
 		$Total = $Amount;
+
 		$_SESSION['AccountNo'] = $AccountNo;
 		$_SESSION['BankName'] = $BankName;
 		$_SESSION['ReceiveAccountNo'] = $ReceiveAccountNo;
