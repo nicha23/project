@@ -1,7 +1,7 @@
 
 $(document).ready(function(){
 	$.ajax({
-		url: 'http://localhost/project/followersdata.php',
+		url: 'http://localhost/project/followersdata0.php',
 		method: "GET",
 		success: function(data) {
 			console.log(data);
