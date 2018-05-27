@@ -23,6 +23,10 @@ include_once 'phpConnect/connect.php';
 		font-size: 25px;
 	}
 
+	a {
+		text-decoration: none;
+	}
+
 	input[type=text], textarea {
 		width: 200px;
 		padding: 15px;
@@ -131,10 +135,6 @@ include_once 'phpConnect/connect.php';
 		border-radius: 20px; 
 		color: #fff;
 		cursor: pointer;
-	}
-
-	.myacc>a {
-		text-decoration: none;
 	}
 
 	.addacc {
@@ -256,7 +256,7 @@ include_once 'phpConnect/connect.php';
 					$query_acc2 = mysqli_query($conn, $sql_acc2);
 							//$result_acc2 = mysqli_fetch_assoc($query_acc2);
 					while(($result_acc1 = mysqli_fetch_assoc($query_acc1))&&($result_acc2 = mysqli_fetch_assoc($query_acc2))){
-						echo '<div class="myacc">	<div class="accinfobar"> <a href="hee.php"> '	;
+						echo '<a href="statement.php"><div class="myacc">	<div class="accinfobar">  '	;
 						echo "<strong>Account Number</strong>";
 						echo " : ".$result_acc1['AccountNo'];
 						echo "<br><strong>Balance</strong>";
@@ -265,7 +265,7 @@ include_once 'phpConnect/connect.php';
 						echo " : ".$result_acc1['TypeAccount'];
 						echo "<br><strong>Branch</strong>";
 						echo " : ".$result_acc2['BranchName'];
-						echo "</a></div></div><br>";
+						echo "</div></div></a><br>";
 					}
 					?>
 							<!-- <strong>Acc No.</strong>
