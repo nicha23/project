@@ -133,7 +133,6 @@ include_once 'phpConnect/connect.php';
 		cursor: pointer;
 	}
 
-
 	.myacc>a {
 		text-decoration: none;
 	}
