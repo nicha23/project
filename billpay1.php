@@ -10,12 +10,13 @@
         echo "Failed to connect to MySQL: " . mysqli_connect_error();
     }
     // escape variables for security
-    $AccountNo = mysqli_real_escape_string($con, $_POST['AccountNo']);
-    $PaymentCode = mysqli_real_escape_string($con, $_POST['PaymentCode']);
-
+    $PaymentCode = $_SESSION['PaymentCode'];
+    $Amount = $_SESSION['Amount'];
+    
     #check amount in paymentcode
     $sql_Amount_check1 = "SELECT Amount,CompanyName FROM billinfo WHERE PaymentCode ='$PaymentCode'";     
     $query1 = mysqli_query($con, $sql_Amount_check1);
+    $result1 = NULL ;
     $result11 = NULL ;
     $result12 = NULL ;
     while($result1 = mysqli_fetch_assoc($query1)){

@@ -1,6 +1,10 @@
 <?php 
 session_start();
 $UserID = $_SESSION['UserID'];
+$PaymentCode = $_SESSION['PaymentCode'];
+$Amount = $_SESSION['Amount'];
+$CompanyName = $_SESSION['CompanyName'];
+
 include_once 'phpConnect/connect.php';
 ?>
 
@@ -146,7 +150,7 @@ include_once 'phpConnect/connect.php';
 			<h1>Bill Payment</h1>
 			<div class="billpay">
 				Select your account <br>
-				<select name="accno" required>
+				<select name="AccountNo" required>
 					<option value="" selected="selected" disabled="disabled">-- select your account --</option>
 					<?php
 					$sql_acc = "SELECT userinfo.IdentificationNo, account.AccountNo
@@ -163,10 +167,13 @@ include_once 'phpConnect/connect.php';
 					</select><br><br>
 
 					Payment Code<br>
-					<input type="text" name="PaymentCode"></input><br><br>
+					<?php echo $PaymentCode ?><br><br>
 
 					Amount <br>
-					<input type="text" name="amount"></input><br><br>
+					<?php echo $Amount ?><br><br>
+
+					Company Name <br>
+					<?php echo $CompanyName ?><br><br>
 
 					Note <br>
 					<textarea rows="4" cols="50" placeholder="Note about your transaction..."></textarea><br>
