@@ -176,7 +176,7 @@ include_once 'phpConnect/connect.php';
 					<?php echo $CompanyName ?><br><br>
 
 					Note <br>
-					<textarea rows="4" cols="50" placeholder="Note about your transaction..."></textarea><br>
+					<textarea name="Note" rows="4" cols="50" placeholder="Note about your transaction..."></textarea><br>
 
 					<button type="submit" style="color: #fff text-decoration: none">
 						<h4>Okay</h4>
