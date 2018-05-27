@@ -10,8 +10,10 @@
         echo "Failed to connect to MySQL: " . mysqli_connect_error();
     }
     // escape variables for security
+    $UserID = $_SESSION['UserID'];
     $PaymentCode = $_SESSION['PaymentCode'];
     $Amount = $_SESSION['Amount'];
+    $CompanyName = $_SESSION['CompanyName'];
     
     $AccountNo = mysqli_real_escape_string($con, $_POST['AccountNo']);
     $Note = mysqli_real_escape_string($con, $_POST['Note']);

@@ -13,29 +13,42 @@ if (mysqli_connect_errno()) {
 $UserID = $_SESSION['UserID'];
 $Password = $_SESSION['Password'];
 
-$accno = mysqli_real_escape_string($con, $_POST['AccountNo']);
-$bank = mysqli_real_escape_string($con, $_POST['BankID']);
-$recaccno = mysqli_real_escape_string($con, $_POST['ReceiveAccountNo']);
-$amount = mysqli_real_escape_string($con, $_POST['Amount']);
-$note = mysqli_real_escape_string($con, $_POST['Note']);
+$AccountNo = mysqli_real_escape_string($con, $_POST['AccountNo']);
+$BankID = mysqli_real_escape_string($con, $_POST['BankID']);
+$ReceiveAccountNo = mysqli_real_escape_string($con, $_POST['ReceiveAccountNo']);
+$Amount = mysqli_real_escape_string($con, $_POST['Amount']);
+$Note = mysqli_real_escape_string($con, $_POST['Note']);
 
 
 
-//other banks
-//Sender
-$sql_trans1="INSERT INTO transaction (AccountNo,BankID,ReceiveAccountNo,Amount,Note,transactionCode)
-VALUES ('$accno','$bank','$recaccno','$amount','$note','A001')";
+
+if ($BankID=="000") {
+	
+	//same bank
+	//transaction Sender
+	$sql_send1="INSERT INTO transaction (AccountNo,BankID,ReceiveAccountNo,Amount,Note,transactionCode)
+	VALUES ('$AccountNo','$BankID','$ReceiveAccountNo','$Amount','$Note','A001')";
+
+	//transaction Receiver
+	$sql_rec1="INSERT INTO transaction (AccountNo,BankID,SenderAccountNo,Amount,Note,transactionCode)
+	VALUES ('$ReceiveAccountNo','$BankID','$AccountNo','$Amount','$Note','A003')";
+
+	//update sender
+	$sql_up_send1="UPDATE account SET Balance=Balance-'$Amount' WHERE AccountNo='$AccountNo'";
+
+	//update receiver
+	$sql_up_rec1="UPDATE account SET Balance=Balance+'$Amount' WHERE AccountNo='$ReceiveAccountNo'";
+}
+else {
+	//other banks
+	//transaction Sender
+	$sql_send2="INSERT INTO transaction (AccountNo,BankID,ReceiveAccountNo,Amount,Note,transactionCode)
+	VALUES ('$AccountNo','$BankID','$ReceiveAccountNo','$Amount','$Note','A001')";
+}
 
 
 
-//same bank
-//Sender
-$sql="INSERT INTO transaction (AccountNo,BankID,ReceiveAccountNo,Amount,Note,transactionCode)
-VALUES ('$accno','$bank','$recaccno','$amount','$note','A001')";
 
-//Receiver
-$sql="INSERT INTO transaction (AccountNo,BankID,ReceiveAccountNo,Amount,Note,transactionCode)
-VALUES ('$recaccno','$bank','$accno','$amount','$note','A003')";
 
 
 
