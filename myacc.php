@@ -266,6 +266,7 @@ include_once 'phpConnect/connect.php';
 						echo " : ".$result_acc1['TypeAccount'];
 						echo "<br><strong>Branch</strong>";
 						echo " : ".$result_acc2['BranchName'];
+
 						echo "</div></div></a><br>";
 					}
 					?>

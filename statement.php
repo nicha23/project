@@ -1,5 +1,7 @@
 <?php 
 session_start();
+$UserID = $_SESSION['UserID'];
+$AccountNo = $_SESSION['AccountNo'];
 include_once 'phpConnect/connect.php';
 ?>
 
@@ -52,21 +54,20 @@ include_once 'phpConnect/connect.php';
 		font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
 		cursor: pointer;
 		color: #fff;
-		padding: 1rem 2rem;
-		display: inline-block;
+		display: block;
 		width: 200px;
 		background-color: #34a534;
-		margin: 30px 0 30px 10px;
 		text-align: center;
 		float: right;
+		padding: 13px;
 	}
 
 	button[type=submit]:hover, button[type=submit]:active, button[type=submit]:focus {
-		background-color: #ee4b28!important;
+		background-color: #309630!important;
 	}
 
 	button[type=submit]:active, button[type=submit]:focus {
-		box-shadow: 0 0 0 .2rem rgba(240,95,64,.5)!important;
+		box-shadow: 0 0 0 .2rem rgba(67,209,54,.5)!important;
 	}
 
 	.sidenav {
@@ -105,6 +106,17 @@ include_once 'phpConnect/connect.php';
 		font-weight: bold;
 	}
 
+	.statement {
+		padding: 30px 30px 30px 30px;
+		background-color: #eee;
+		width: 1100px;
+	}
+
+	.accbar {
+		background-color: #555;
+		padding: 5px 5px 5px 5px;
+	}
+
 	.main {
 		margin-left: 280px; /* Same as the width of the sidenav */
 		margin-right: 300px;
@@ -124,7 +136,73 @@ include_once 'phpConnect/connect.php';
 </style>
 </head>
 <body>
-	
+	<div class="sidenav">
+		<div style="padding-left: 16px;">
+			<h2>JBU <br> Online Banking</h2>
+		</div>
+		<a href="myacc.php" name="myacc">My Account</a>
+		<a href="transfer.php" name="transfer">Transfer</a>
+		<a href="beforepay.php" name="billpay">Bill Payment</a>
+		<a href="settings.php" name="settings">Settings</a>
+		<a href="logout.php">Sign out</a>
+	</div>
+	<div class="main">
+		<h1>Statement</h1>
+		<div class="statement">
+			
+			Please select month to see your monthly statement. <br>
+			
+			<form action="test.php" method="post">
+				<select name="month" id="month">
+					<option value="" selected>-- select month --</option>
+					<option value="1" >January</option>
+					<option value="2" >February</option>
+					<option value="3" >March</option>
+					<option value="4" >April</option>
+					<option value="5" >May</option>
+				</select>
+				<button type="submit" id="select" style="color: #fff text-decoration: none">
+					<h4>Select</h4>
+				</button>
+			</form>
+			
+
+			<script>
+				function myfn() {
+					var x = document.getElementById("month").value;
+					if (x === "January") {
+						document.getElementById("demo").innerHTML = "<?php echo $result1['total']; ?>";
+					}
+					else if (x === "February") {
+						document.getElementById("demo").innerHTML = "Heeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee";
+					}
+				}
+			</script>
+
+			<div class="statementbar">
+				<h1 id="demo"></h1>
+
+
+
+
+
+
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$(".statementbar").hide();
+			$("#select").click(function(){
+				$(".statementbar").show();
+			});
+		});
+	</script>
 </body>
 </html>
 
