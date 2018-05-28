@@ -256,8 +256,10 @@ include_once 'phpConnect/connect.php';
 					WHERE userid.UserID='$UserID'"; 
 					$query_acc2 = mysqli_query($conn, $sql_acc2);
 							//$result_acc2 = mysqli_fetch_assoc($query_acc2);
+					$test = 1;
 					while(($result_acc1 = mysqli_fetch_assoc($query_acc1))&&($result_acc2 = mysqli_fetch_assoc($query_acc2))){
-						echo '<a href="statement.php"><div class="myacc">	<div class="accinfobar">  '	;
+						
+						echo '<a href="statement.php?check=' . $result_acc1['AccountNo'] . '"><div class="myacc">	<div class="accinfobar">  '	;
 						echo "<strong>Account Number</strong>";
 						echo " : ".$result_acc1['AccountNo'];
 						echo "<br><strong>Balance</strong>";
@@ -268,6 +270,7 @@ include_once 'phpConnect/connect.php';
 						echo " : ".$result_acc2['BranchName'];
 
 						echo "</div></div></a><br>";
+						$test = $test+1;
 					}
 					?>
 							<!-- <strong>Acc No.</strong>

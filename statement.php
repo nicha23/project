@@ -1,9 +1,18 @@
 <?php 
 session_start();
 $UserID = $_SESSION['UserID'];
-$AccountNo = $_SESSION['AccountNo'];
 include_once 'phpConnect/connect.php';
+// $xx = intval($_GET['check']);
+$account = $_GET['check'];
+$_SESSION['AccountNo'] = $account;
+// $xx = mysqli_real_escape_string($con,$_GET['check']);
 ?>
+
+<script>
+
+var i = "<?php echo $xx; ?>";
+console.log(i);
+</script>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -100,7 +109,7 @@ include_once 'phpConnect/connect.php';
 		font-weight: bold; 
 	}
 
-	.sidenav>a[name="transfer"] {
+	.sidenav>a[name="myacc"] {
 		background-color: #3f474f;
 		color: #000;
 		font-weight: bold;
@@ -174,7 +183,7 @@ include_once 'phpConnect/connect.php';
 						document.getElementById("demo").innerHTML = "<?php echo $result1['total']; ?>";
 					}
 					else if (x === "February") {
-						document.getElementById("demo").innerHTML = "Heeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee";
+						document.getElementById("demo").innerHTML = "55";
 					}
 				}
 			</script>

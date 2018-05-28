@@ -12,20 +12,34 @@ if (mysqli_connect_errno()) {
     // escape variables for security
 $UserID = $_SESSION['UserID'];
 $AccountNo = $_SESSION['AccountNo'];
-$Password = $_SESSION['Password'];
 
 $month = mysqli_real_escape_string($con, $_POST['month']);
 
-	//january
 $sql="SELECT datetime, total, currentbalance, transactioncode FROM transaction WHERE accountNo='$AccountNo' AND MONTH(DateTime) = $month;";
 $query = mysqli_query($con, $sql);
+// $outp = "[";
 while($result1 = mysqli_fetch_assoc($query)){
-        $result11 = $result1['DateTime'];
+    if($result1!=NULL){
+    // if ($outp != "[") {$outp .= ",";}
+        // $outp .= '{"datetime":"'. $result1['datetime']. '",';
+        // $outp .= '"total":"'. $result1['total']. '",';
+        // $outp .= '"currentbalance":"'. $result1['currentbalance']. '",';
+        // $outp .= '"transactioncode":"'. $result1['transactioncode']. '"}';
+        echo "\r\n date :".$result1['datetime'];
+        echo "\r\n total :".$result1['total'];
+        echo "\r\n currentbalance :".$result1['currentbalance'];
+        echo "\r\n transactioncode :".$result1['transactioncode'];
+
+        echo "<script>setTimeout(\"location.href = 'myacc.php';\",10000);</script>";
+    }else{
+        echo '<script language="javascript">';
+        echo 'alert("In month have no transaction")';
+        echo '</script>';
+        echo "<script>setTimeout(\"location.href = 'statement.php';\",0);</script>";
     }
-				
-while($result1 = mysqli_fetch_array($query_may)){
-	$result11 = $result1['datetime'];
+        
 }
-echo $result1['datetime'];
+// $outp .="]";
+// echo($outp);
 
 ?>
