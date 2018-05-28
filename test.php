@@ -25,10 +25,11 @@
             // $outp .= '"total":"'. $result1['total']. '",';
             // $outp .= '"currentbalance":"'. $result1['currentbalance']. '",';
             // $outp .= '"transactioncode":"'. $result1['transactioncode']. '"}';
-            echo "\r\n date :".$result1['datetime'];
-            echo "\r\n total :".$result1['total'];
-            echo "\r\n currentbalance :".$result1['currentbalance'];
-            echo "\r\n transactioncode :".$result1['transactioncode'];
+            echo "<br>date :    ".$result1['datetime'];
+            echo "  total :   ".$result1['total'];
+            echo "  currentbalance :  ".$result1['currentbalance'];
+            echo "  transactioncode : ".$result1['transactioncode'];
+            
             
         }
     // $outp .="]";
